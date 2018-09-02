@@ -1,5 +1,5 @@
 # parcel-plugin-modernizr
-A Parcel plugin for generating custom [Modernizr](https://github.com/Modernizr/Modernizr) builds 🛡
+A Parcel plugin for generating custom [Modernizr](https://github.com/Modernizr/Modernizr) builds ⚙️
 
 ## Installation
 ```shell

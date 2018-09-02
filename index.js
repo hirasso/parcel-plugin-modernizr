@@ -26,7 +26,7 @@ function generateModernizrFile(bundler) {
       if (err) {
         return console.error(err);
       }
-      console.log(`Modernizr build saved to ${destination}`);
+      console.log(`⚙️ Modernizr build saved to ${destination}`);
     });
   });
   
