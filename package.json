@@ -1,0 +1,15 @@
+{
+  "name": "parcel-plugin-modernizr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "modernizr": "^3.6.0",
+    "parcel-bundler": "^1.9.7"
+  },
+  "peerDependencies": {
+    "modernizr": "^3.6.0",
+    "parcel-bundler": "^1.9.7"
+  }
+}
