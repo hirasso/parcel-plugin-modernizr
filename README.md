@@ -29,3 +29,6 @@ Add your desired modernizr config to your project's `package.json`, for example:
 Run parcel. The plugin will generate a file named `modernizr-custom.js` inside parcel's `outDir`. Since it has to connect to modernizr's servers, this only happens on first run, not on watch rebuilds.
 
 See [https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all available options.
+
+## Contributing
+Pull requests are welcome
