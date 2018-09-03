@@ -17,10 +17,10 @@ describe('basic', function() {
     const bundle = await bundler.bundle();
 
 
-    // setTimeout(() => {
-    //   let modernizrBuildExists = fs.existsSync( path.join(__dirname, './dist/modernizr-custom.js') );
-    //   assert( modernizrBuildExists );
-    // }, 0);
+    setTimeout(() => {
+      let modernizrBuildExists = fs.existsSync( path.join(__dirname, './dist/modernizr-custom.js') );
+      assert( modernizrBuildExists );
+    }, 0);
 
   });
 });
