@@ -10,14 +10,13 @@ module.exports = function (bundler) {
 function generateModernizrFile(bundler) {
   let destination = `${bundler.options.outDir}/modernizr-custom.js`;
   let options = getOptions();
-  
 
   modernizr.build(options, (result) => {
     fs.writeFile(destination, result, function(err) {
       if (err) {
         return console.error(err);
       }
-      console.log(`⚙️  Modernizr build saved to ./${path.relative(__dirname, bundler.options.outDir)}/modernizr-custom.js`);
+      console.log(`⚙️  Modernizr build saved to ./${path.relative(process.cwd(), bundler.options.outDir)}/modernizr-custom.js`);
     });
   });
 }
