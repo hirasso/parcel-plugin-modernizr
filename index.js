@@ -1,34 +1,42 @@
 const fs = require('fs');
+const path = require('path');
 const modernizr = require('modernizr');
 
 module.exports = function (bundler) {
-  generateModernizrFile(bundler);
-  // bundler.on('bundled', () => generateModernizrFile(bundler));
+  // generateModernizrFile(bundler);
+  bundler.on('bundled', () => generateModernizrFile(bundler));
 };
 
 function generateModernizrFile(bundler) {
-  // console.log( bundler.options.production );
   let destination = `${bundler.options.outDir}/modernizr-custom.js`;
-  let packagePath = `${process.cwd()}/package.json`;
-  let pkg = null;
-
-  try {
-    pkg = require(packagePath);
-  } catch( e ) {
-    console.error( `[parcel-plugin-modernizr] Couldn't find package.json` );
-  }
+  let options = getOptions();
   
-  if( !pkg.modernizr ) {
-    console.error( `[parcel-plugin-modernizr] No modernizr config found in package.json` );
-  }
-  modernizr.build(pkg.modernizr, (result) => {
+
+  modernizr.build(options, (result) => {
     fs.writeFile(destination, result, function(err) {
       if (err) {
         return console.error(err);
       }
-      console.log(`⚙️ Modernizr build saved to ${destination}`);
+      console.log(`⚙️  Modernizr build saved to ./${path.relative(__dirname, bundler.options.outDir)}/modernizr-custom.js`);
     });
   });
-  
+}
 
+function getOptions() {
+  let packagePath = `${process.cwd()}/package.json`;
+  let options = {};
+  let package = null;
+
+  try {
+    package = require(packagePath);
+  } catch( e ) {
+    console.error( `[parcel-plugin-modernizr] Couldn't find package.json` );
+  }
+
+  if( typeof package.modernizr === 'object' ) {
+    options = package.modernizr;
+  } else {
+    console.error( `[parcel-plugin-modernizr] No modernizr config found in package.json` );
+  }
+  return options;
 }
