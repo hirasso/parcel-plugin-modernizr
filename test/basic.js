@@ -14,7 +14,7 @@ describe('basic', function() {
     }
     const bundler = await setupBundler(path.join(__dirname, './Integration/Basic/index.html'), {});
     bundler.on('bundled', () => {
-      assert( fs.existsSync( path.join(__dirname, './dist/modernizr.js') ) );
+      assert( fs.existsSync( path.join(__dirname, './dist/modernizr-custom.js') ) );
     })
     const bundle = await bundler.bundle();
   });
