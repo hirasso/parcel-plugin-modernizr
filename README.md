@@ -2,16 +2,22 @@
 A [Parcel](https://github.com/parcel-bundler/parcel) plugin for generating custom [Modernizr](https://github.com/Modernizr/Modernizr) builds ⚙️
 
 ## Installation
-```shell
-$ npm install parcel-plugin-modernizr -D
-$ # OR
+#### Using Yarn
+```
 $ yarn add parcel-plugin-modernizr -D
 ```
+#### Using NPM
+
+```
+$ npm install parcel-plugin-modernizr -D
+```
 ## Usage
-Add your desired modernizr config to your project's `package.json`, for example:
+
+Create a file named `.modernizrrc` in the root folder of your project and put your config inside, for example:
 
 ```json
 "modernizr": {
+  "minify": true,
   "classPrefix" : "",
   "options": [
     "setClasses",
@@ -26,9 +32,13 @@ Add your desired modernizr config to your project's `package.json`, for example:
   ]
 }
 ```
-Run parcel. The plugin will generate a file named `modernizr-custom.js` inside parcel's `outDir`. Since it has to connect to modernizr's servers, this only happens on first run, not on watch rebuilds.
+
+**Note**: You can also put your config inside your project's `package.json`, if you like the concept of a "single source of truth".
 
 See [https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all available options.
+
+Run `parcel`. The plugin will generate a file named `modernizr.js` inside parcel's `outDir`. Since it has to connect to modernizr's servers, this only happens once every time you run Parcel, not on every watch rebuild.
+
 
 ## Contributing
 Pull requests are welcome

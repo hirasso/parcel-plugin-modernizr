@@ -1,0 +1,13 @@
+{
+  "minify": true,
+  "options": [
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/svg",
+    "css/flexbox",
+    "css/animations",
+    "touchevents",
+    "history"
+  ]
+}
