@@ -33,7 +33,7 @@ Create a file named `.modernizrrc` in the root folder of your project and put yo
 }
 ```
 
-**Note**: You can also put your config inside your project's `package.json`, if you like the concept of a "single source of truth".
+**Hint**: You can also put your config inside your project's `package.json`, if you like the concept of a "single source of truth". It only looks inside `package.json`, if there is no `.modernizrrc` found.
 
 See [https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all available options.
 
