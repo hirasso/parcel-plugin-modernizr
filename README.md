@@ -16,24 +16,41 @@ $ npm install parcel-plugin-modernizr -D
 Create a file named `.modernizrrc` in the root folder of your project and put your config inside, for example:
 
 ```json
-"modernizr": {
+{
   "minify": true,
   "classPrefix" : "",
   "options": [
     "setClasses",
-    "addTest",
-    "html5printshiv",
-    "load",
-    "testProp",
-    "fnBind"
+    "addTest"
   ],
   "feature-detects": [
-    "css/pointerevents", "touchevents", "history"
+    "css/pointerevents", 
+    "touchevents", 
+    "history"
   ]
 }
 ```
 
-**Hint**: You can also put your config inside your project's `package.json`, if you like the concept of a "single source of truth". It only looks inside `package.json`, if there is no `.modernizrrc` found.
+Instead of using a `.modernizrrc`, you can also put your config inside your project's `package.json` under the key "modernizr", like so:
+
+
+```json
+"modernizr": {
+  "minify": false,
+  "classPrefix" : "",
+  "options": [
+    "setClasses",
+    "addTest"
+  ],
+  "feature-detects": [
+    "css/pointerevents", 
+    "touchevents", 
+    "history"
+  ]
+}
+```
+
+The plugin only looks inside `package.json`, if there is no `.modernizrrc` found.
 
 See [https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all available options.
 
