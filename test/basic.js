@@ -13,9 +13,10 @@ describe('basic', function() {
       console.error(err)
     }
     const bundler = await setupBundler(path.join(__dirname, './Integration/Basic/index.html'), {});
+    bundler.on('bundled', () => {
+      assert( fs.existsSync( path.join(__dirname, './dist/modernizr.js') ) );
+    })
     const bundle = await bundler.bundle();
-
-    assert( fs.existsSync( path.join(__dirname, './dist/modernizr.js') ) );
   });
   it('Should load the modernizr config', async function() {
     let config = ModernizrPlugin.getConfig();

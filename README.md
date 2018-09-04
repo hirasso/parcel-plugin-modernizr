@@ -37,7 +37,7 @@ Create a file named `.modernizrrc` in the root folder of your project and put yo
 
 See [https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all available options.
 
-Run `parcel`. The plugin will generate a file named `modernizr.js` inside parcel's `outDir`. Since it has to connect to modernizr's servers, this only happens once every time you run Parcel, not on every watch rebuild.
+Run `parcel`. The plugin will generate a file named `modernizr.js` inside parcel's `outDir`, based on your config.
 
 
 ## Contributing
