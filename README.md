@@ -51,18 +51,21 @@ See [https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json](htt
 
 ### Option 1: Embedded in html
 
-In your ./src/index.html:
+./src/index.html:
+
+#### Input
 
 ```html
 <script src="modernizr.mdrnzr"></script>
 ```
-Terminal: 
+./src/modernizr.mdrnzr: Your modernizr config (or empty if using one of the other options)
+
 
 ```
 $ parcel ./src/index.html
 ```
 
-**Output:**
+#### Output
 
 ./dist/index.html:
 
@@ -73,12 +76,14 @@ $ parcel ./src/index.html
 
 ### Option 2: Direct
 
-Terminal:
+#### Input
+
+./src/modernizr.mdrnzr: Your modernizr config (or empty if using one of the other options)
 
 ```
 $ parcel ./src/modernizr.mdrnzr
 ```
-**Output:**
+#### Output
 
 ./dist/modernizr.js: Your custom modernizr build
 
