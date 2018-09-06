@@ -15,7 +15,7 @@ $ yarn add parcel-plugin-modernizr -D
 
 ## Usage
 
-Create a file named `.modernizrrc` in the root folder of your project and put your config inside, for example:
+In your project's source folder, create a file `modernizr.mdrnzr` and put in your Modernizr config, for example:
 
 ```json
 {
@@ -33,30 +33,50 @@ Create a file named `.modernizrrc` in the root folder of your project and put yo
 }
 ```
 
-Instead of using a `.modernizrrc`, you can also put your config inside your project's `package.json` under the key "modernizr", like so:
+You can also create a file named `.modernizrrc` in your project's root folder and put your config there.
 
+Instead of using a `.modernizrrc`, you can also put your config inside your project's `package.json` under the key "modernizr".
 
-```json
-"modernizr": {
-  "minify": false,
-  "classPrefix" : "",
-  "options": [
-    "setClasses",
-    "addTest"
-  ],
-  "feature-detects": [
-    "css/pointerevents", 
-    "touchevents", 
-    "history"
-  ]
-}
-```
+### Config hierarchy:
 
-The plugin only looks inside `package.json`, if there is no `.modernizrrc` found.
+1. .modernizrrc
+2. package.json under key "modernizr"
+3. directly inside "modernizr.mdrnzr"
 
 See [https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all available options.
 
-Run `parcel`. The plugin will generate a file named `modernizr-custom.js` inside parcel's `outDir`, based on your config.
+### Option 1: Embedded in html
+
+In your ./src/index.html:
+
+```html
+<script src="modernizr.mdrnzr"></script>
+```
+Terminal: 
+
+```
+$ parcel ./src/index.html
+```
+
+**Output:**
+
+./dist/index.html:
+
+```html
+<script src="modernizr.contentHash.js"></script>
+```
+./dist/modernizr.contentHash.js: Your custom modernizr build
+
+### Option 2: Direct
+
+Terminal:
+
+```
+$ parcel ./src/modernizr.mdrnzr
+```
+**Output:**
+
+./dist/modernizr.js: Your custom modernizr build
 
 
 ## Contributing
