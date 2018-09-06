@@ -1,10 +1,6 @@
 # parcel-plugin-modernizr [![Build Status](https://travis-ci.com/hirasso/parcel-plugin-modernizr.svg?branch=master)](https://travis-ci.com/hirasso/parcel-plugin-modernizr)
 A [Parcel](https://github.com/parcel-bundler/parcel) plugin for generating custom [Modernizr](https://github.com/Modernizr/Modernizr) builds ⚙️
 
-### A brief note before you use this plugin:
-
-This is still in early stage, so there might (and will be) breaking changes in the future. I first built this with my personal setup in mind (PHP development, parcel only handling `.js` entryFiles). There is no way (yet) to use this plugin with a single `index.html` as entry file. I'll have to look into how to create a proper custom Parcel Asset to make this work.
-
 ## Installation
 
 #### Using NPM
@@ -19,7 +15,7 @@ $ yarn add parcel-plugin-modernizr -D
 
 ## Usage
 
-Create a file named `.modernizrrc` in the root folder of your project and put your config inside, for example:
+In your project's source folder, create a file `modernizr.mdrnzr` and put in your Modernizr config, for example:
 
 ```json
 {
@@ -37,30 +33,50 @@ Create a file named `.modernizrrc` in the root folder of your project and put yo
 }
 ```
 
-Instead of using a `.modernizrrc`, you can also put your config inside your project's `package.json` under the key "modernizr", like so:
+You can also create a file named `.modernizrrc` in your project's root folder and put your config there.
 
+Instead of using a `.modernizrrc`, you can also put your config inside your project's `package.json` under the key "modernizr".
 
-```json
-"modernizr": {
-  "minify": false,
-  "classPrefix" : "",
-  "options": [
-    "setClasses",
-    "addTest"
-  ],
-  "feature-detects": [
-    "css/pointerevents", 
-    "touchevents", 
-    "history"
-  ]
-}
-```
+### Config hierarchy:
 
-The plugin only looks inside `package.json`, if there is no `.modernizrrc` found.
+1. .modernizrrc
+2. package.json under key "modernizr"
+3. directly inside "modernizr.mdrnzr"
 
 See [https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all available options.
 
-Run `parcel`. The plugin will generate a file named `modernizr-custom.js` inside parcel's `outDir`, based on your config.
+### Option 1: Embedded in html
+
+In your ./src/index.html:
+
+```html
+<script src="modernizr.mdrnzr"></script>
+```
+Terminal: 
+
+```
+$ parcel ./src/index.html
+```
+
+**Output:**
+
+./dist/index.html:
+
+```html
+<script src="modernizr.contentHash.js"></script>
+```
+./dist/modernizr.contentHash.js: Your custom modernizr build
+
+### Option 2: Direct
+
+Terminal:
+
+```
+$ parcel ./src/modernizr.mdrnzr
+```
+**Output:**
+
+./dist/modernizr.js: Your custom modernizr build
 
 
 ## Contributing
