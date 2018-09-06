@@ -1,6 +1,8 @@
 # parcel-plugin-modernizr [![Build Status](https://travis-ci.com/hirasso/parcel-plugin-modernizr.svg?branch=master)](https://travis-ci.com/hirasso/parcel-plugin-modernizr)
 A [Parcel](https://github.com/parcel-bundler/parcel) plugin for generating custom [Modernizr](https://github.com/Modernizr/Modernizr) builds ⚙️
 
+##### Please note: Since `v1.1.0`, the functionality of this plugin changed. See [setup instructions](#setup) on how to use it now.
+
 ## Installation
 
 #### Using NPM
