@@ -13,7 +13,7 @@ $ npm install parcel-plugin-modernizr -D
 $ yarn add parcel-plugin-modernizr -D
 ```
 
-## Usage
+## Setup
 
 In your project's source folder, create a file `modernizr.mdrnzr` and put in your Modernizr config, for example:
 
@@ -44,6 +44,8 @@ Instead of using a `.modernizrrc`, you can also put your config inside your proj
 3. directly inside "modernizr.mdrnzr"
 
 See [https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all available options.
+
+## Usage
 
 ### Option 1: Embedded in html
 
