@@ -47,13 +47,9 @@ Instead of using a `.modernizrrc`, you can also put your config inside your proj
 
 See [https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all available options.
 
-## Usage
-
-### Option 1: Embedded in html
+## Usage option 1: Embedded in html
 
 ./src/index.html:
-
-#### Input
 
 ```html
 <script src="modernizr.mdrnzr"></script>
@@ -67,16 +63,14 @@ $ parcel ./src/index.html
 
 #### Output
 
-./dist/index.html:
+1. ./dist/index.html:
 
-```html
-<script src="modernizr.contentHash.js"></script>
-```
-./dist/modernizr.contentHash.js: Your custom modernizr build
+	```html
+	<script src="modernizr.contentHash.js"></script>
+	```
+2. ./dist/modernizr.contentHash.js: Your custom modernizr build
 
-### Option 2: Direct
-
-#### Input
+## Usage option 2: Direct
 
 ./src/modernizr.mdrnzr: Your modernizr config (or empty if using one of the other options)
 
